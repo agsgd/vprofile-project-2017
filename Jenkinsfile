@@ -1,3 +1,9 @@
+def COLOR_MAP = [
+  'SUCCESS': 'good',
+  'FAILURE': 'danger',
+]
+
+
 pipeline {
 
     agent any
@@ -97,4 +103,15 @@ pipeline {
        }
     }
   
+post{
+  always {
+    echo 'Slack Notification.'
+    slackSend channel: '#intigration_with_jenkins',
+    color: COLOR_MAP[currentBuild.currentResult],
+    message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n more information at: ${env.BUILD_URL}"
+  }
+}
+
+
+
 }
