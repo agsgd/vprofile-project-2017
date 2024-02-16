@@ -8,8 +8,8 @@ pipeline{
     }
       
         environment {
-        // NEXUS_USER = "admin"
-        // NEXUS_PASS = "Gabbar$8"
+        NEXUS_USER = "admin"
+        NEXUS_PASS = "Gabbar${8}"
         NEXUSIP = "172.200.227.22"
         NEXUSPORT = '8081'
         RELEASE_REPO ="vprofile-release"
