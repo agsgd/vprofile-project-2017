@@ -37,11 +37,12 @@ pipeline{
             archiveArtifacts artifacts: '**/*.war'
           }
          }
+         
                stage('TEST'){
         steps {
             sh 'mvn test'
          }
-      }
+       }
         stage('CheckStyle Analysis'){
         steps {
             sh 'mvn checkstyle:checkstyle'
@@ -49,4 +50,6 @@ pipeline{
       }  
 
    }
+
 }
+
