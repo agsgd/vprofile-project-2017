@@ -14,7 +14,7 @@ pipeline {
         NEXUSPORT = '8081'
         RELEASE_REPO ='vprofile-release'
         NEXUS_GRP_REPO ='vpro-maven-group'
-        NEXUS_CREDENTIAL_ID = 'nexuslogin'
+       
         CENTRAL_REPO = 'vpro-maven-central'
 
         SONARSERVER = 'sonarserver'
