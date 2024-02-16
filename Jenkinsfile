@@ -20,13 +20,13 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER ='sonarscanner'
 
-    //     NEXUS_VERSION = "nexus3"
-    //     NEXUS_PROTOCOL = "http"
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
     //     http://172.200.227.229:8081/
-    //    NEXUS_URL = "172.200.227.229:8081"
-    //     NEXUS_REPOSITORY = "vprofile-release"
+        NEXUS_URL = "172.200.227.229:8081"
+        NEXUS_REPOSITORY = "vprofile-release"
 	  //     NEXUS_REPOGRP_ID= "vprofile-grp-repo"
-    //     NEXUS_CREDENTIAL_ID = "nexuslogin"
+        NEXUS_CREDENTIAL_ID = "nexuslogin"
     //     ARTVERSION = "${env.BUILD_ID}"
     }
    stages{
@@ -78,6 +78,26 @@ pipeline {
           timeout(time: 1, unit: 'HOURS'){
           waitForQualityGate abortPipeline: true
           }
+        }
+       }
+
+       stage("ArtifactsUpload to Nexus"){
+        steps{
+         nexusArtifactUploader(
+        nexusVersion: "${NEXUS_VERSION}",
+        protocol: "${NEXUS_PROTOCOL}",
+        nexusUrl: "${NEXUS_URL}",
+        groupId: 'QA',
+        version: "${env.BUILD_ID}"-"${env.BUILD_TIMESTAMP}",
+        repository: "${NEXUS_REPOSITORY}",
+        credentialsId: "${NEXUS_CREDENTIAL_ID}",
+        artifacts: [
+            [artifactId: 'vprofile',
+             classifier: '',
+             file: 'target/vprofile-v2.war',
+             type: 'war']
+        ] )
+
         }
        }
     }
