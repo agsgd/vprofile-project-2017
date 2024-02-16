@@ -106,22 +106,45 @@ pipeline {
         ] )
 
         }
-       }
-
-
-
-
-    
+       }  
   
-     post { 
-       always {
-           echo 'Slack Notification.'
-                  slackSend channel: '#intigration_with_jenkins',
-                  color: COLOR_MAP[currentBuild.currentResult],
-                  message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n more information at: ${env.BUILD_URL}"
-         }
-      }
+    //  post { 
+    //    always {
+    //        echo 'Slack Notification.'
+    //               slackSend channel: '#intigration_with_jenkins',
+    //               color: COLOR_MAP[currentBuild.currentResult],
+    //               message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n more information at: ${env.BUILD_URL}"
+    //      }
+    //   }
 
   }
 }
 
+
+
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //           docker.build("${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}")
+        //         }
+        //     }
+        // }
+
+        // stage('Login to Azure') {
+        //     steps {
+        //         script {
+        //             def azLogin = "az login --service-principal -u ${AZURE_CREDENTIALS.clientId} -p ${AZURE_CREDENTIALS.clientSecret} --tenant ${AZURE_CREDENTIALS.tenantId}"
+        //             sh(azLogin)
+        //         }
+        //     }
+        // }
+
+        // stage('Push Image to ACR') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry("${ACR_SERVER}", "${AZURE_CREDENTIALS}") {
+        //                 docker.image("${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}").push()
+        //             }
+        //         }
+        //     }
+        // }
