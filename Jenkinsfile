@@ -83,13 +83,13 @@ pipeline {
 
        stage("ArtifactsUpload to Nexus"){
         steps{
-         nexusArtifactUploader(
+        nexusArtifactUploader(
         nexusVersion: "${NEXUS_VERSION}",
         protocol: "${NEXUS_PROTOCOL}",
-        nexusUrl: "${NEXUS_URL}",
+        nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
         groupId: 'QA',
         version: "${env.BUILD_ID}",
-        repository: "${NEXUS_REPOSITORY}",
+        repository: "${RELEASE_REPO}",
         credentialsId: "${NEXUS_CREDENTIAL_ID}",
         artifacts: [
             [artifactId: 'vprofile',
