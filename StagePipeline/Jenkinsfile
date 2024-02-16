@@ -30,8 +30,8 @@ pipeline {
         NEXUS_REPOSITORY = 'vprofile-release'
 
 
-    AZURE_CREDENTIALS = credentials('azure-service-principal')
-         // AZURE_CREDENTIALS = 'azure-sp'
+   // AZURE_CREDENTIALS = credentials('azure-service-principal')
+        AZURE_CREDENTIALS = credentials('azure-sp')
         ACR_SERVER = 'jenkinsacr2024.azurecr.io'
         IMAGE_NAME = 'artifactsimage'
 
