@@ -83,7 +83,7 @@ pipeline {
         protocol: 'http',
         nexusUrl: '172.200.227.229:8081',
         groupId: 'QA',
-        version: "${env.BUILD_ID}-${env.TIMESTAMP}",
+        version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
         repository: 'vprofile-release',
         credentialsId: "${NEXUS_LOGIN}",
         artifacts: [
