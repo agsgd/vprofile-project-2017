@@ -129,11 +129,7 @@ pipeline {
 
         stage('Push Image to ACR') {
             steps {
-                script {
-                    docker.withRegistry("${ACR_SERVER}", "${AZURE_CREDENTIALS}") {
-                        docker.image("${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}").push()
-                    }
-                }
+               sh "docker push ${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}"
             }
         }
 
