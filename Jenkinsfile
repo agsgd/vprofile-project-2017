@@ -20,13 +20,13 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER ='sonarscanner'
 
-        NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
+        NEXUS_VERSION = 'nexus3'
+        NEXUS_PROTOCOL = 'http'
     //     http://172.200.227.229:8081/
         NEXUS_URL = "172.200.227.229:8081"
         NEXUS_REPOSITORY = "vprofile-release"
 	  //     NEXUS_REPOGRP_ID= "vprofile-grp-repo"
-        NEXUS_LOGIN= "nexuslogin"
+        NEXUS_LOGIN= 'nexuslogin'
     //     ARTVERSION = "${env.BUILD_ID}"
     }
    stages{
@@ -90,7 +90,7 @@ pipeline {
         groupId: 'QA',
         version: '1.0.1',
         repository: "${RELEASE_REPO}",
-        credentialsId: "${NEXUS_CREDENTIAL_ID}",
+        credentialsId: "${NEXUS_LOGIN}",
         artifacts: [
             [artifactId: 'vprofile',
              classifier: '',
