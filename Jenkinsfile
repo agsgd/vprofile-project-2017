@@ -86,10 +86,10 @@ pipeline {
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
-        nexusUrl: "${NEXUS_URL}",
+        nexusUrl: '172.200.227.229:8081',
         groupId: 'QA',
         version: "${env.BUILD_ID}",
-        repository: "${RELEASE_REPO}",
+        repository: 'vprofile-release',
         credentialsId: "${NEXUS_LOGIN}",
         artifacts: [
             [artifactId: 'vprofile',
