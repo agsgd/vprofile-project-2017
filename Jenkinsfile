@@ -14,20 +14,15 @@ pipeline {
         NEXUSPORT = '8081'
         RELEASE_REPO ='vprofile-release'
         NEXUS_GRP_REPO ='vpro-maven-group'
-       
+        NEXUS_LOGIN= 'nexuslogin'
         CENTRAL_REPO = 'vpro-maven-central'
-
         SONARSERVER = 'sonarserver'
         SONARSCANNER ='sonarscanner'
-
         NEXUS_VERSION = 'nexus3'
         NEXUS_PROTOCOL = 'http'
-    //     http://172.200.227.229:8081/
         NEXUS_URL = '172.200.227.229:8081'
         NEXUS_REPOSITORY = 'vprofile-release'
-	  //     NEXUS_REPOGRP_ID= "vprofile-grp-repo"
-        NEXUS_LOGIN= 'nexuslogin'
-    //     ARTVERSION = "${env.BUILD_ID}"
+
     }
    stages{
       stage('BUILD'){
@@ -81,7 +76,7 @@ pipeline {
         }
        }
 
-       stage("ArtifactsUpload to Nexus"){
+       stage('ArtifactsUpload Nexus'){
         steps{
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
