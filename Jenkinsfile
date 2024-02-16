@@ -22,7 +22,7 @@ pipeline{
     //     http://172.200.227.229:8081/
     //    NEXUS_URL = "172.200.227.229:8081"
     //     NEXUS_REPOSITORY = "vprofile-release"
-	//     NEXUS_REPOGRP_ID= "vprofile-grp-repo"
+	  //     NEXUS_REPOGRP_ID= "vprofile-grp-repo"
     //     NEXUS_CREDENTIAL_ID = "nexuslogin"
     //     ARTVERSION = "${env.BUILD_ID}"
     }
@@ -49,7 +49,7 @@ pipeline{
          }
       }  
 
-     }
+     
    }
 }
 
