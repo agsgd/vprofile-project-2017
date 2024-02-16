@@ -120,10 +120,10 @@ pipeline {
 
         stage('Login to Azure') {
             steps {
-                script {
-                    def azLogin = "az login --service-principal -u ${AZURE_CREDENTIALS.clientId} -p ${AZURE_CREDENTIALS.clientSecret} --tenant ${AZURE_CREDENTIALS.tenantId}"
-                    sh(azLogin)
-                }
+              
+                  sh "az login --service-principal -u 3de0ffdc-d7b8-4e67-aa7e-bdddf96fe974 -p qpT8Q~-ZSVIx32elkTW2hen0u6fPjzXrAiRdzb3r --tenant 55f5f753-3c23-4837-82b5-8a9a1fe94045"
+                  
+                
             }
         }
 
