@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
 
     agent any
     
@@ -37,7 +37,7 @@ pipeline{
             archiveArtifacts artifacts: '**/*.war'
           }
          }
-
+      }
                stage('TEST'){
         steps {
             sh 'mvn test'
@@ -47,9 +47,6 @@ pipeline{
         steps {
             sh 'mvn checkstyle:checkstyle'
          }
-      }  
-
-     
+      }   
    }
 }
-
