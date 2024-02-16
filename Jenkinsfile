@@ -41,7 +41,7 @@ pipeline {
           }
          }
       }
-               stage('TEST'){
+        stage('TEST'){
         steps {
             sh 'mvn test'
          }
@@ -50,6 +50,8 @@ pipeline {
         steps {
             sh 'mvn checkstyle:checkstyle'
          }
+
+        }
         stage('CODE ANALYSIS with SONARQUBE') {
           
 		  environment {
@@ -70,7 +72,7 @@ pipeline {
                }    
           } 
             
-      }
+      
     }
   }
 }
