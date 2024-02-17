@@ -143,7 +143,7 @@ pipeline {
         stage('Deploy AKS') {
             steps {
                sh "az aks get-credentials -n jenkins-grp-k8s -g jenkins-grp-rg"
-               sh "az aks update -n jenkins-grp-k8s -g jenkins-grp-rg --attach-acr ${CONTAINER_REGISTRY}"
+              // sh "az aks update -n jenkins-grp-k8s -g jenkins-grp-rg --attach-acr ${CONTAINER_REGISTRY}"
                sh "kubectl apply -f ./StagePipeline/test-deploy.yaml"
                
             }
