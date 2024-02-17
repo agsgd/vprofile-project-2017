@@ -115,48 +115,31 @@ pipeline {
        }  
 
 
-        // stage('Build Docker Image') {
-        //     steps {
+        stage('Build Docker Image') {
+            steps {
                 
-        //         //  'sh' docker.build("${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}", "Docker-files/app/multistage/ .")
-        //              sh "docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER} ./Docker-files/app/multistage"
+                //  'sh' docker.build("${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}", "Docker-files/app/multistage/ .")
+                     sh "docker build -t ${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER} ./Docker-files/app/multistage"
                 
-        //     }
-        // }
+            }
+        }
 
-        // stage('Login to Azure') {
-        //     steps {
+        stage('Login to Azure') {
+            steps {
               
-        //           sh "az login --service-principal -u 3de0ffdc-d7b8-4e67-aa7e-bdddf96fe974 -p f4L8Q~Yzkx_wuHXALq5q4NV9UoSREqoP3qHg4bP6 --tenant 55f5f753-3c23-4837-82b5-8a9a1fe94045"
+                  sh "az login --service-principal -u 3de0ffdc-d7b8-4e67-aa7e-bdddf96fe974 -p f4L8Q~Yzkx_wuHXALq5q4NV9UoSREqoP3qHg4bP6 --tenant 55f5f753-3c23-4837-82b5-8a9a1fe94045"
                   
                 
-        //     }
-        // }
-
-        // stage('Push Image to ACR') {
-        //     steps {
-        //        sh "docker push ${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}"
-        //     }
-        // }
-
-
-
-
-
-
-
-   
-        stage('Example') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'myAzureCredential', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
-                            sh "az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID"
-                            sh "az account set -s $AZURE_SUBSCRIPTION_ID"
-                            sh "az acr login --name $CONTAINER_REGISTRY --resource-group $RESOURCE_GROUP"
-                            sh "az acr build --image $REPO/$IMAGE_NAME:$TAG --registry $CONTAINER_REGISTRY --file Dockerfile . "
-                        }
             }
-        
-    }
+        }
+
+        stage('Push Image to ACR') {
+            steps {
+               sh "docker push ${ACR_SERVER}/${IMAGE_NAME}:${env.BUILD_NUMBER}"
+            }
+        }
+
+
 
 
   
