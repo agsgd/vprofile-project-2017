@@ -145,7 +145,7 @@ pipeline {
 
 
 
-    stages {
+   
         stage('Example') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'azure-sp', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
@@ -155,7 +155,7 @@ pipeline {
                             sh "az acr build --image $REPO/$IMAGE_NAME:$TAG --registry $CONTAINER_REGISTRY --file Dockerfile . "
                         }
             }
-        }
+        
     }
 
 
