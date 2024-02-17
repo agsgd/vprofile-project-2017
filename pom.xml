@@ -146,6 +146,12 @@
 	            <artifactId>amqp-client</artifactId>
 	            <version>4.0.2</version>
 	   </dependency>
+      <!-- azure cintainer -->
+       <dependency>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>azure-container-registry-tasks</artifactId>
+    <version>0.6.5</version>
+</dependency>
 	   <!-- Elasticsearch Dependency-->
 		<dependency>
 		    <groupId>org.elasticsearch</groupId>
