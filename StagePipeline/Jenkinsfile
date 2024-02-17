@@ -16,7 +16,7 @@ pipeline {
         environment {
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'Gabbar$8'
-        NEXUSIP = '172.200.227.229'
+        NEXUSIP = '172.172.62.232'
         NEXUSPORT = '8081'
         RELEASE_REPO ='vprofile-release'
         NEXUS_GRP_REPO ='vpro-maven-group'
