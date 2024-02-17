@@ -121,7 +121,7 @@ pipeline {
         stage('Login to Azure') {
             steps {
               
-                  sh "az login --service-principal -u 3de0ffdc-d7b8-4e67-aa7e-bdddf96fe974 -p qpT8Q~-ZSVIx32elkTW2hen0u6fPjzXrAiRdzb3r --tenant 55f5f753-3c23-4837-82b5-8a9a1fe94045"
+                  sh "az login --service-principal -u 3de0ffdc-d7b8-4e67-aa7e-bdddf96fe974 -p f4L8Q~Yzkx_wuHXALq5q4NV9UoSREqoP3qHg4bP6 --tenant 55f5f753-3c23-4837-82b5-8a9a1fe94045"
                   
                 
             }
