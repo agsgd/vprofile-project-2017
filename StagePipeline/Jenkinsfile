@@ -135,7 +135,7 @@ pipeline {
 
   
 
-    //  post { 
+    // post { 
     //    always {
     //        echo 'Slack Notification.'
     //               slackSend channel: '#intigration_with_jenkins',
